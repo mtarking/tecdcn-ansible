@@ -16,28 +16,42 @@
           prefer: true
     state: overridden
 
-- name: Enable Features
-  cisco.nxos.nxos_feature:
-    feature: "{{ item }}"
-    state: enabled
-  loop: "{{ features }}"
+- name: Manage Features
+  when: features is defined and features | length > 0
+  block:
+    - name: Enable Features
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: enabled
+      loop: "{{ features }}"
 
-- name: Get Features via TextFSM
-  ansible.utils.cli_parse:
-    command: show run | include feature
-    parser:
-      name: ansible.utils.textfsm
-      template_path: "{{ role_path }}/templates/feature.textfsm"
-    set_fact: parsed_output
+    - name: Get Features from Switch via TextFSM
+      ansible.utils.cli_parse:
+        command: show run | include feature
+        parser:
+          name: ansible.utils.textfsm
+          template_path: "{{ role_path }}/templates/feature.textfsm"
+        set_fact: parsed_output
 
-- ansible.builtin.set_fact:
-    parsed_features: "{{ parsed_output | map(attribute='feature') | list | unique }}"
+    - name: Default Parsed Feaures List
+      ansible.builtin.set_fact:
+        parsed_features: []
 
-- ansible.builtin.set_fact:
-    features_to_unconfigure: "{{ parsed_features | difference(features) }}"
+    - name: Parse Features
+      ansible.builtin.set_fact:
+        parsed_features: "{{ parsed_output | map(attribute='feature') | list | unique | default([]) }}"
 
-- name: Enable Features
-  cisco.nxos.nxos_feature:
-    feature: "{{ item }}"
-    state: disabled
-  loop: "{{ features_to_unconfigure }}"
+    - name: Default Feature to Unconfigure List
+      ansible.builtin.set_fact:
+        features_to_unconfigure: []
+
+    - name: Determine Features to Unconfigure
+      ansible.builtin.set_fact:
+        features_to_unconfigure: "{{ parsed_features | difference(features) | default([]) }}"
+
+    - name: Remove Features
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: disabled
+      loop: "{{ features_to_unconfigure }}"
+      when: features_to_unconfigure | length > 0

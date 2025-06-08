@@ -5,5 +5,5 @@ neighbors:
 {% for bgp_neighbor in bgp_neighbors %}
   - neighbor_address: {{ bgp_neighbor.neighbor }}
     remote_as: {{ bgp_neighbor.remote_as }}
-    update_source: {{ bgp_neighbor.update_source }}
+    update_source: {{ bgp_neighbor.update_source | lower }}
 {% endfor %}

@@ -4,6 +4,10 @@
 hostname: leaf2
 
 layer3_physical_interfaces: &l3
+  - interface: mgmt0
+    ip_address: 10.15.34.14
+    mask: 24
+    mtu: 1500
   - interface: ethernet1/1
     description: To S1 Eth1/2
     mode: layer3

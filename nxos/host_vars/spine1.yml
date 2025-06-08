@@ -4,6 +4,10 @@
 hostname: spine1
 
 layer3_physical_interfaces: &l3
+    - interface: mgmt0
+      ip_address: 10.15.34.11
+      mask: 24
+      mtu: 1500
     - interface: ethernet1/1
       description: To L1 Eth1/11
       ip_address: 10.1.1.0
