@@ -1,7 +1,6 @@
 /collections
 *.env
 scripts/
-ansible.cfg
 secrets.sh
 
 # VScode

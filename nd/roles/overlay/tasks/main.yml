@@ -43,7 +43,7 @@
       cisco.dcnm.dcnm_vrf:
         fabric: "{{ fabric_settings.FABRIC_NAME }}"
         config: "{{ vrf_config }}"
-        state: replaced
+        state: overridden
 
 # -----------------------
 # CREATE NETWORK SECTION
@@ -75,4 +75,4 @@
       cisco.dcnm.dcnm_network:
         fabric: "{{ fabric_settings.FABRIC_NAME }}"
         config: "{{ net_config }}"
-        state: replaced
+        state: overridden
