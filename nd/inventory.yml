@@ -1,0 +1,4 @@
+ndfc:
+  hosts:
+    TECDCN-2419:
+      ansible_host: 10.15.0.110

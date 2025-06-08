@@ -1,0 +1,20 @@
+---
+# This file is auto-generated
+# DO NOT EDIT MANUALLY
+#
+- vrf_name: CiscoLive_VRF01
+  vrf_id: 50000
+  vlan_id: 2000
+  attach:
+    - ip_address: 10.15.33.13
+    - ip_address: 10.15.33.14
+    - ip_address: 10.15.33.15
+  deploy: false
+- vrf_name: AnsibleVRF
+  vrf_id: 50003
+  vlan_id: 2003
+  attach:
+    - ip_address: 10.15.33.13
+    - ip_address: 10.15.33.14
+    - ip_address: 10.15.33.15
+  deploy: false
