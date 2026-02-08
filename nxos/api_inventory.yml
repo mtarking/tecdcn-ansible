@@ -22,3 +22,5 @@ nxos:
           ansible_host: 10.15.34.14
         leaf3:
           ansible_host: 10.15.34.15
+        leaf4:
+          ansible_host: 10.15.34.16
