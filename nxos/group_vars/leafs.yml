@@ -22,9 +22,9 @@ bgp:
     - neighbor: 10.0.0.1
       remote_as: 65001
       update_source: loopback0
-    - neighbor: 10.0.0.2
-      remote_as: 65001
-      update_source: loopback0
+    # - neighbor: 10.0.0.2
+    #   remote_as: 65001
+    #   update_source: loopback0
 
 anycast_gw_mac: "1234.5678.9000"
 
@@ -32,7 +32,7 @@ vrfs:
   - name: management
     routes:
       - destination: 0.0.0.0/0
-        next_hop: 10.15.2.1
+        next_hop: 10.15.33.1
   - name: &refvrf_ansiblevrf AnsibleVRF
     vlan_id: 500
     vni_id: 50000
@@ -46,10 +46,17 @@ networks:
     ip_address: 192.168.1.1
     mask: 24
     mcast_grp: 239.1.1.1
-  # - name: AnsibleNet2
-  #   vlan_id: 102
-  #   vni_id: 10102
+  - name: AnsibleNet2
+    vlan_id: 102
+    vni_id: 10102
+    vrf: *refvrf_ansiblevrf
+    ip_address: 192.168.2.1
+    mask: 24
+    mcast_grp: 239.1.1.2
+  # - name: AnsibleNet3
+  #   vlan_id: 103
+  #   vni_id: 10103
   #   vrf: *refvrf_ansiblevrf
-  #   ip_address: 192.168.2.1
+  #   ip_address: 192.168.3.1
   #   mask: 24
-  #   mcast_grp: 239.1.1.2
+  #   mcast_grp: 239.1.1.3

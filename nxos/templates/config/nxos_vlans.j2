@@ -1,7 +1,8 @@
 {% if (vrfs is defined and vrfs is iterable) or
       (networks is defined and networks is iterable) %}
 {% set vlans = vrfs + networks %}
-- 'vlan_id': 1
+- vlan_id: 1
+  name: default
 {% for vlan in vlans %}
 {% if vlan.vlan_id is defined or vlan.name != 'management' %}
 - name: "{{ vlan.name | default(omit) }}"

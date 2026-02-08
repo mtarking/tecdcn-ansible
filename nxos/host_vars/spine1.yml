@@ -4,7 +4,7 @@
 hostname: spine1
 
 layer3_physical_interfaces: &l3
-    - interface: mgmt0
+    - name: mgmt0
       ip_address: 10.15.33.11
       mask: 24
       enabled: true
