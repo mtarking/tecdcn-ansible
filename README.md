@@ -2,8 +2,6 @@
 
 This repo contains the reference playbook with the VXLAN EVPN IaC at Cisco Live.
 
-<!-- ![1](./assets/brkdcn-2946-vxlan-evpn-topology.png) -->
-
 ## Cloning Repo
 
 ```bash
