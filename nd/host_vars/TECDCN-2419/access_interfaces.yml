@@ -1,0 +1,29 @@
+---
+
+access_interfaces:
+  - name: eth1/3
+    type: eth
+    switch:
+      - 10.15.33.25
+    deploy: false
+    profile:
+      admin_state: true
+      mode: access
+      speed: auto
+      bpdu_guard: false
+      port_type_fast: true
+      mtu: jumbo
+      access_vlan: 2302
+  # - name: eth1/4
+  #   type: eth
+  #   switch:
+  #     - 10.15.33.25
+  #   deploy: false
+  #   profile:
+  #     admin_state: true
+  #     mode: access
+  #     speed: auto
+  #     bpdu_guard: false
+  #     port_type_fast: true
+  #     mtu: jumbo
+  #     access_vlan: 2304

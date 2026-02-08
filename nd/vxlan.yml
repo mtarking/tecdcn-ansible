@@ -8,5 +8,6 @@
 
   roles:
     - fabric
+    - interfaces
     - overlay
     - deploy

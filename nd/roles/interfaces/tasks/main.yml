@@ -1,0 +1,15 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/interfaces
+
+- name: Manage vPC Interfaces
+  cisco.dcnm.dcnm_interface:
+    fabric: "{{ fabric_settings.FABRIC_NAME }}"
+    config: "{{ vpc_interfaces }}"
+    state: overridden
+
+- name: Manage Access Interfaces
+  cisco.dcnm.dcnm_interface:
+    fabric: "{{ fabric_settings.FABRIC_NAME }}"
+    config: "{{ access_interfaces }}"
+    state: overridden

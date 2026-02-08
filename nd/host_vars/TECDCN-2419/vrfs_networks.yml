@@ -6,11 +6,11 @@ vrfs:
     vlan_id: 2000
     attach_group: all_leaf
     deploy: false
-  - vrf_name: &refvrf_ansible AnsibleVRF
-    vrf_id: 50003
-    vlan_id: 2003
-    attach_group: all_leaf
-    deploy: false
+  # - vrf_name: &refvrf_ansible AnsibleVRF
+  #   vrf_id: 50003
+  #   vlan_id: 2003
+  #   attach_group: all_leaf
+  #   deploy: false
 networks:
   - net_name: CiscoLive_Net01
     vrf_name: CiscoLive_VRF01
@@ -20,34 +20,42 @@ networks:
     gw_ip_subnet: 192.168.1.1/24
     attach_group: leaf1_leaf2
     deploy: false
-  - net_name: AnsibleNet1
-    vrf_name: *refvrf_ansible
-    net_id: 30003
-    vlan_id: 2303
-    vlan_name: AnsibleNet1_vlan2303
-    gw_ip_subnet: 192.168.3.1/24
-    attach_group: leaf1_leaf2
-    deploy: false
-  - net_name: AnsibleNet2
-    vrf_name: *refvrf_ansible
-    net_id: 30004
-    vlan_id: 2304
-    vlan_name: AnsibleNet2_vlan2304
-    gw_ip_subnet: 192.168.4.1/24
+  - net_name: CiscoLive_Net02
+    vrf_name: CiscoLive_VRF01
+    net_id: 30002
+    vlan_id: 2302
+    vlan_name: CiscoLive_Net02_vlan2302
+    gw_ip_subnet: 192.168.2.1/24
     attach_group: leaf3
     deploy: false
+  # - net_name: AnsibleNet1
+  #   vrf_name: *refvrf_ansible
+  #   net_id: 30003
+  #   vlan_id: 2303
+  #   vlan_name: AnsibleNet1_vlan2303
+  #   gw_ip_subnet: 192.168.3.1/24
+  #   attach_group: leaf1_leaf2
+  #   deploy: false
+  # - net_name: AnsibleNet2
+  #   vrf_name: *refvrf_ansible
+  #   net_id: 30004
+  #   vlan_id: 2304
+  #   vlan_name: AnsibleNet2_vlan2304
+  #   gw_ip_subnet: 192.168.4.1/24
+  #   attach_group: leaf3
+  #   deploy: false
 
 vrf_attach_group:
   all_leaf:
-    - ip_address: 10.15.33.13
-    - ip_address: 10.15.33.14
-    - ip_address: 10.15.33.15
+    - ip_address: 10.15.33.23
+    - ip_address: 10.15.33.24
+    - ip_address: 10.15.33.25
 
 net_attach_group:
   leaf1_leaf2:
-    - ip_address: 10.15.33.13
+    - ip_address: 10.15.33.23
       ports: [port-channel3]
-    - ip_address: 10.15.33.14
+    - ip_address: 10.15.33.24
       ports: [port-channel3]
   leaf3:
-    - ip_address: 10.15.33.15
+    - ip_address: 10.15.33.25

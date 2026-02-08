@@ -1,0 +1,12 @@
+---
+# This file is auto-generated
+# DO NOT EDIT MANUALLY
+#
+- vrf_name: CiscoLive_VRF01
+  vrf_id: 50000
+  vlan_id: 2000
+  attach:
+    - ip_address: 10.15.33.23
+    - ip_address: 10.15.33.24
+    - ip_address: 10.15.33.25
+  deploy: False
