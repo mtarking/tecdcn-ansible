@@ -13,8 +13,8 @@
 {# Attach Group Section #}
 {# ------------------------------------------------------ #}
   attach:
-{% for switch in vrf_attach_group.all_leaf %}
+{% for switch in vrf_attach_group[vrf['attach_group']] %}
     - ip_address: {{ switch['ip_address'] }}
 {% endfor %}
-  deploy: false
+  deploy: {{ vrf['deploy'] }}
 {% endfor %}

@@ -9,7 +9,7 @@
       - "+             Calling Role - [deploy]                          +"
       - "----------------------------------------------------------------"
 
-- name: Config-Save & Deploy for NDFC Fabric {{ fabric_settings.FABRIC_NAME }}
+- name: Config-Save & Deploy for Nexus Dashboard Fabric {{ fabric_settings.FABRIC_NAME }}
   tags:
     - deploy
   block:

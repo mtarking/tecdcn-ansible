@@ -17,14 +17,14 @@
 # CREATE VRF SECTION
 # -------------------
 
-- name: Generate and Manage NDFC Fabric VRFs
+- name: Generate and Manage Nexus Dashboard Fabric VRFs
   tags:
     - mo_vrfs_nets
     - mo_vrfs
     - mo_all
   block:
     # --------------------------------------------------------------------
-    # Generate VRF Configuration for NDFC
+    # Generate VRF Configuration for Nexus Dashboard
     # --------------------------------------------------------------------
     - name: Create file to hold rendered VRF information
       ansible.builtin.template:
@@ -37,9 +37,9 @@
         vrf_config: "{{ lookup('file', 'attach_vrfs.yml') | from_yaml }}"
 
     # --------------------------------------------------------------------
-    # Manage VRF Configuration on NDFC
+    # Manage VRF Configuration on Nexus Dashboard
     # --------------------------------------------------------------------
-    - name: Manage NDFC Fabric VRFs
+    - name: Manage Nexus Dashboard Fabric VRFs
       cisco.dcnm.dcnm_vrf:
         fabric: "{{ fabric_settings.FABRIC_NAME }}"
         config: "{{ vrf_config }}"
@@ -49,14 +49,14 @@
 # CREATE NETWORK SECTION
 # -----------------------
 
-- name: Generate and Manage NDFC Fabric Networks
+- name: Generate and Manage Nexus Dashboard Fabric Networks
   tags:
     - mo_vrfs_nets
     - mo_vrfs
     - mo_all
   block:
     # --------------------------------------------------------------------
-    # Generate Network Configuration for NDFC
+    # Generate Network Configuration for Nexus Dashboard
     # --------------------------------------------------------------------
     - name: Create file to hold rendered Network information
       ansible.builtin.template:
@@ -69,9 +69,9 @@
         net_config: "{{ lookup('file', 'attach_nets.yml') | from_yaml }}"
 
     # --------------------------------------------------------------------
-    # Manage Network Configuration on NDFC
+    # Manage Network Configuration on Nexus Dashboard
     # --------------------------------------------------------------------
-    - name: Manage NDFC Fabric Networks
+    - name: Manage Nexus Dashboard Fabric Networks
       cisco.dcnm.dcnm_network:
         fabric: "{{ fabric_settings.FABRIC_NAME }}"
         config: "{{ net_config }}"

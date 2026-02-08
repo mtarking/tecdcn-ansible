@@ -17,24 +17,24 @@ networks:
     net_id: 30001
     vlan_id: 2301
     vlan_name: CiscoLive_Net01_vlan2301
-    gw_ip_subnet: 10.3.1.1/24
-    attach_group: esxi
+    gw_ip_subnet: 192.168.1.1/24
+    attach_group: leaf1_leaf2
     deploy: false
   - net_name: AnsibleNet1
     vrf_name: *refvrf_ansible
     net_id: 30003
     vlan_id: 2303
     vlan_name: AnsibleNet1_vlan2303
-    gw_ip_subnet: 10.3.3.1/24
-    attach_group: esxi
+    gw_ip_subnet: 192.168.3.1/24
+    attach_group: leaf1_leaf2
     deploy: false
   - net_name: AnsibleNet2
     vrf_name: *refvrf_ansible
     net_id: 30004
     vlan_id: 2304
     vlan_name: AnsibleNet2_vlan2304
-    gw_ip_subnet: 10.3.4.1/24
-    attach_group: esxi
+    gw_ip_subnet: 192.168.4.1/24
+    attach_group: leaf3
     deploy: false
 
 vrf_attach_group:
@@ -44,10 +44,10 @@ vrf_attach_group:
     - ip_address: 10.15.33.15
 
 net_attach_group:
-  esxi:
+  leaf1_leaf2:
     - ip_address: 10.15.33.13
-      ports: [Ethernet1/11]
+      ports: [port-channel3]
     - ip_address: 10.15.33.14
-      ports: [Ethernet1/11]
+      ports: [port-channel3]
+  leaf3:
     - ip_address: 10.15.33.15
-      ports: [Ethernet1/11]

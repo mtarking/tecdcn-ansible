@@ -4,5 +4,5 @@ ansible_connection: ansible.netcommon.httpapi
 ansible_httpapi_use_ssl: true
 ansible_httpapi_validate_certs: false
 ansible_network_os: cisco.dcnm.dcnm
-ansible_user: admin
-ansible_password: cisco.123
+ansible_user: "{{ lookup('ansible.builtin.env', 'ND_USERNAME') }}"
+ansible_password: "{{ lookup('ansible.builtin.env', 'ND_PASSWORD') }}"

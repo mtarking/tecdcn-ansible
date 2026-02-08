@@ -16,9 +16,11 @@
 {# Attach Group Section #}
 {# ------------------------------------------------------ #}
   attach:
-{% for switch in net_attach_group.esxi %}
+{% for switch in net_attach_group[net['attach_group']] %}
     - ip_address: {{ switch['ip_address'] }}
+{% if switch['ports'] is defined %}
       ports: {{ switch['ports'] }}
+{% endif %}
 {% endfor %}
-  deploy: false
+  deploy: {{ net['deploy'] }}
 {% endfor %}

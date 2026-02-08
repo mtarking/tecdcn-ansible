@@ -2,7 +2,7 @@
 # This is the top level build playbook that runs the various
 # Ansible roles that will be used to build out the fabric
 
-- name: Build VXLAN EVPN Fabric on ND
+- name: Manage VXLAN EVPN Fabric on ND
   hosts: TECDCN-2419
   gather_facts: false
 
