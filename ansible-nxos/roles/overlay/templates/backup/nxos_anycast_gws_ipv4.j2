@@ -1,0 +1,9 @@
+{% if networks is defined and networks is iterable %}
+{% for network in networks %}
+{% if network.vlan_id != 1 %}
+- name: "vlan{{ network.vlan_id }}"
+  ipv4:
+    - address: "{{ network.addr }}/{{ network.mask }}"
+{% endif %}
+{% endfor %}
+{% endif %}

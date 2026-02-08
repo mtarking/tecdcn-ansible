@@ -1,0 +1,9 @@
+---
+
+ansible_connection: ansible.netcommon.httpapi
+ansible_httpapi_port: 443
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_network_os: cisco.nxos.nxos
+ansible_user: "{{ lookup('ansible.builtin.env', 'NXOS_USERNAME') }}"
+ansible_httpapi_pass: "{{ lookup('ansible.builtin.env', 'NXOS_PASSWORD') }}"

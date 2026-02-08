@@ -1,0 +1,10 @@
+# hosts file for Ansible playbook
+---
+nxos:
+  children:
+    spines:
+      hosts:
+        10.15.2.11:
+    leafs:
+      hosts:
+        10.15.2.21:

@@ -1,0 +1,10 @@
+{% if (vrfs is defined and vrfs is iterable) or
+      (networks is defined and networks is iterable) %}
+{% set vlans = vrfs + networks %}
+{% for vlan in vlans %}
+{% if vlan.vlan_id is defined or vlan.name != 'management' %}
+- name: vlan{{ vlan.vlan_id }}
+  enabled: true
+{% endif%}
+{% endfor %}
+{% endif %}
