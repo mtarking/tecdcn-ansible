@@ -36,6 +36,9 @@ vrfs:
   - name: &refvrf_ansiblevrf AnsibleVRF
     vlan_id: 500
     vni_id: 50000
+  # - name: &refvrf_ciscolivevrf CiscoLiveVRF
+  #   vlan_id: 501
+  #   vni_id: 50001
 
 networks:
   # - vlan_id: 1
@@ -53,10 +56,10 @@ networks:
     ip_address: 192.168.2.1
     mask: 24
     mcast_grp: 239.1.1.2
-  - name: AnsibleNet3
-    vlan_id: 103
-    vni_id: 10103
-    vrf: *refvrf_ansiblevrf
-    ip_address: 192.168.3.1
-    mask: 24
-    mcast_grp: 239.1.1.3
+  # - name: CiscoLiveNet1
+  #   vlan_id: 103
+  #   vni_id: 10103
+  #   vrf: *refvrf_ciscolivevrf
+  #   ip_address: 192.168.3.1
+  #   mask: 24
+  #   mcast_grp: 239.1.1.3
