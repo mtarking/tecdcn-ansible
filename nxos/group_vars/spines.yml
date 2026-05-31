@@ -28,6 +28,6 @@ bgp:
     - neighbor: 10.0.0.102
       remote_as: 65001
       update_source: loopback0
-    - neighbor: 10.0.0.103
-      remote_as: 65001
-      update_source: loopback0
+    # - neighbor: 10.0.0.103
+    #   remote_as: 65001
+    #   update_source: loopback0

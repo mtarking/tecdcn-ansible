@@ -1,0 +1,22 @@
+---
+
+vpc_interfaces:
+  - name: vpc3
+    type: vpc
+    switch:
+      - 10.15.255.71
+      - 10.15.255.72
+    deploy: false
+    profile:
+      admin_state: true
+      mode: trunk
+      peer1_pcid: 3
+      peer2_pcid: 3
+      peer1_members:
+        - e1/3
+      peer2_members:
+        - e1/3
+      pc_mode: active
+      bpdu_guard: true
+      port_type_fast: true
+      mtu: jumbo

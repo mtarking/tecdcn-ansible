@@ -2,24 +2,29 @@
 # This file is auto-generated
 # DO NOT EDIT MANUALLY
 #
-- net_name: CiscoLive_Net01
-  vrf_name: CiscoLive_VRF01
-  net_id: 30001
+- net_name: NaC-Net01
+  vrf_name: NaC-VRF01
+  net_id: 130001
   vlan_id: 2301
-  vlan_name: CiscoLive_Net01_vlan2301
+  vlan_name: NaC-Net01_vlan2301
   gw_ip_subnet: 192.168.1.1/24
   attach:
-    - ip_address: 10.15.33.23
-      ports: ['port-channel3']
-    - ip_address: 10.15.33.24
-      ports: ['port-channel3']
+    - ip_address: 10.15.255.71
+      ports: ['ethernet1/11']
+    - ip_address: 10.15.255.72
+      ports: ['ethernet1/11']
+    - ip_address: 10.15.255.73
+      ports: ['ethernet1/11']
+    - ip_address: 10.15.255.74
+      ports: ['ethernet1/11']
   deploy: False
-- net_name: CiscoLive_Net02
-  vrf_name: CiscoLive_VRF01
-  net_id: 30002
+- net_name: NaC-Net02
+  vrf_name: NaC-VRF01
+  net_id: 130002
   vlan_id: 2302
-  vlan_name: CiscoLive_Net02_vlan2302
+  vlan_name: NaC-Net02_vlan2302
   gw_ip_subnet: 192.168.2.1/24
   attach:
-    - ip_address: 10.15.33.25
+    - ip_address: 10.15.255.74
+      ports: ['ethernet1/11']
   deploy: False

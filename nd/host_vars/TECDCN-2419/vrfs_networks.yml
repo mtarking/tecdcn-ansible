@@ -54,8 +54,10 @@ vrf_attach_group:
 net_attach_group:
   leaf1_leaf2:
     - ip_address: 10.15.33.23
-      ports: [port-channel3]
+      ports:
+        - port-channel3
     - ip_address: 10.15.33.24
-      ports: [port-channel3]
+      ports:
+        - port-channel3
   leaf3:
     - ip_address: 10.15.33.25

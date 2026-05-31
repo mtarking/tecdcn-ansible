@@ -1,0 +1,61 @@
+---
+
+networks:
+  - net_name: NaC-Net01
+    vrf_name: NaC-VRF01
+    net_id: 130001
+    vlan_id: 2301
+    vlan_name: NaC-Net01_vlan2301
+    gw_ip_subnet: 192.168.1.1/24
+    attach_group: spirent
+    deploy: false
+  - net_name: NaC-Net02
+    vrf_name: NaC-VRF01
+    net_id: 130002
+    vlan_id: 2302
+    vlan_name: NaC-Net02_vlan2302
+    gw_ip_subnet: 192.168.2.1/24
+    attach_group: leaf4
+    deploy: false
+  # - net_name: AnsibleNet1
+  #   vrf_name: AnsibleVRF
+  #   net_id: 30003
+  #   vlan_id: 2303
+  #   vlan_name: AnsibleNet1_vlan2303
+  #   gw_ip_subnet: 192.168.3.1/24
+  #   attach_group: leaf1_leaf2
+  #   deploy: false
+  # - net_name: AnsibleNet2
+  #   vrf_name: AnsibleVRF
+  #   net_id: 30004
+  #   vlan_id: 2304
+  #   vlan_name: AnsibleNet2_vlan2304
+  #   gw_ip_subnet: 192.168.4.1/24
+  #   attach_group: leaf4
+  #   deploy: false
+
+net_attach_group:
+  spirent:
+    - ip_address: 10.15.255.71
+      ports:
+        - ethernet1/11
+    - ip_address: 10.15.255.72
+      ports:
+        - ethernet1/11
+    - ip_address: 10.15.255.73
+      ports:
+        - ethernet1/11
+    - ip_address: 10.15.255.74
+      ports:
+        - ethernet1/11
+  # leaf1_leaf2:
+  #   - ip_address: 10.15.255.71
+  #     ports:
+  #       - port-channel3
+  #   - ip_address: 10.15.255.72
+  #     ports:
+  #       - port-channel3
+  leaf4:
+    - ip_address: 10.15.255.74
+      ports:
+        - ethernet1/11

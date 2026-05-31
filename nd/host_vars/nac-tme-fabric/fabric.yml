@@ -1,0 +1,7 @@
+---
+
+fabric_settings:
+    DEPLOY: yes
+    FABRIC_NAME: nac-tme-fabric
+    FABRIC_TYPE: VXLAN_EVPN
+    BGP_AS: 65991

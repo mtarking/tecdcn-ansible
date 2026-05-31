@@ -2,11 +2,20 @@
 # This file is auto-generated
 # DO NOT EDIT MANUALLY
 #
-- vrf_name: CiscoLive_VRF01
-  vrf_id: 50000
-  vlan_id: 2000
+- vrf_name: NaC-VRF01
+  vrf_id: 150001
+  vlan_id: 2001
   attach:
-    - ip_address: 10.15.33.23
-    - ip_address: 10.15.33.24
-    - ip_address: 10.15.33.25
+    - ip_address: 10.15.255.71
+    - ip_address: 10.15.255.72
+    - ip_address: 10.15.255.73
+    - ip_address: 10.15.255.74
+    - ip_address: 10.15.255.75
+    - ip_address: 10.15.255.76
+  deploy: False
+- vrf_name: NaC-VRF02
+  vrf_id: 150002
+  vlan_id: 2002
+  attach:
+    - ip_address: 10.15.255.74
   deploy: False

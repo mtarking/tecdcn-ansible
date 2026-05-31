@@ -1,0 +1,29 @@
+---
+
+vrfs:
+  - vrf_name: NaC-VRF01
+    vrf_id: 150001
+    vlan_id: 2001
+    attach_group: all_leaf
+    deploy: false
+  - vrf_name: NaC-VRF02
+    vrf_id: 150002
+    vlan_id: 2002
+    attach_group: leaf4
+    deploy: false
+  # - vrf_name: &refvrf_ansible AnsibleVRF
+  #   vrf_id: 250001
+  #   vlan_id: 2501
+  #   attach_group: all_leaf
+  #   deploy: false
+
+vrf_attach_group:
+  all_leaf:
+    - ip_address: 10.15.255.71
+    - ip_address: 10.15.255.72
+    - ip_address: 10.15.255.73
+    - ip_address: 10.15.255.74
+    - ip_address: 10.15.255.75
+    - ip_address: 10.15.255.76
+  leaf4:
+    - ip_address: 10.15.255.74

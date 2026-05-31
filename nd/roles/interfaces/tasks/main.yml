@@ -2,14 +2,29 @@
 ---
 # tasks file for roles/interfaces
 
-- name: Manage vPC Interfaces
+- name: Manage Interfaces
   cisco.dcnm.dcnm_interface:
     fabric: "{{ fabric_settings.FABRIC_NAME }}"
-    config: "{{ vpc_interfaces }}"
+    config: "{{ vpc_interfaces + access_interfaces | default([]) }}"
     state: overridden
+  when:
+    - vpc_interfaces is defined or access_interfaces is defined
+    - vpc_interfaces | length > 0 or access_interfaces | length > 0
 
-- name: Manage Access Interfaces
-  cisco.dcnm.dcnm_interface:
-    fabric: "{{ fabric_settings.FABRIC_NAME }}"
-    config: "{{ access_interfaces }}"
-    state: overridden
+# - name: Manage vPC Interfaces
+#   cisco.dcnm.dcnm_interface:
+#     fabric: "{{ fabric_settings.FABRIC_NAME }}"
+#     config: "{{ vpc_interfaces }}"
+#     state: replaced
+#   when:
+#     - vpc_interfaces is defined
+#     - vpc_interfaces | length > 0
+
+# - name: Manage Access Interfaces
+#   cisco.dcnm.dcnm_interface:
+#     fabric: "{{ fabric_settings.FABRIC_NAME }}"
+#     config: "{{ access_interfaces }}"
+#     state: replaced
+#   when:
+#     - access_interfaces is defined
+#     - access_interfaces | length > 0

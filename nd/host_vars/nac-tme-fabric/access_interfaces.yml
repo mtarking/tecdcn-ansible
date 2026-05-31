@@ -1,0 +1,17 @@
+---
+
+access_interfaces:
+  - name: eth1/21
+    type: eth
+    switch:
+      - 10.15.255.71
+      - 10.15.255.72
+    deploy: false
+    profile:
+      admin_state: true
+      mode: access
+      speed: auto
+      bpdu_guard: false
+      port_type_fast: true
+      mtu: jumbo
+      access_vlan: 2302
