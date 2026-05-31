@@ -84,3 +84,10 @@ networks:
   #   ip_address: 192.168.101.1
   #   mask: 24
   #   mcast_grp: 239.1.1.101
+  # - name: CiscoLiveNet2
+  #   vlan_id: 1102
+  #   vni_id: 1010102
+  #   vrf: *refvrf_ciscolivevrf
+  #   ip_address: 192.168.102.1
+  #   mask: 24
+  #   mcast_grp: 239.1.1.102
