@@ -1,4 +1,4 @@
-# TECDCN: Infra-as-Code for NXOS & NDFC with Ansible
+# TECDCN: Infra-as-Code for NXOS & ND/NDFC with Ansible
 
 This repo contains the reference playbook with the VXLAN EVPN IaC at Cisco Live.
 
